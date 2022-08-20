@@ -1,7 +1,10 @@
 import React from 'react';
+import LoginScreen from './LoginScreen';
 
 function App() {
-  return null
+  return(
+    <LoginScreen/>
+  );
 }
 
 export default App;
