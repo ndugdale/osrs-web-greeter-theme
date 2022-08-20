@@ -1,5 +1,6 @@
-import React from "react";
+import { lightdm } from "nody-greeter-types";
 import { Field, Form } from "react-final-form"
+import React from "react";
 
 const LoginForm = () => {
 
