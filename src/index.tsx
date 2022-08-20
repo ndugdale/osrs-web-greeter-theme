@@ -8,7 +8,6 @@ const root = ReactDOM.createRoot(
 );
 
 const initGreeter = async (): Promise<void> => {
-  lightdm.authenticate("superuser")
   root.render(
     <React.StrictMode>
       <App />

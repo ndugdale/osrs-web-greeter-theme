@@ -1,21 +1,37 @@
 import { lightdm } from "nody-greeter-types";
 import { Field, Form } from "react-final-form"
-import React from "react";
+import React, { useEffect } from "react";
+
+type formType = {
+  user: string;
+  password: string;
+}
 
 const LoginForm = () => {
 
-  const onSubmit = (values: any[]) => {
-    window.alert(JSON.stringify(values));
+  const onSubmit = async (values: formType) => {
+    lightdm.cancel_authentication();
+    const authenticationSuccess = lightdm.authenticate(values.user)
+    await wait(100);
+    const responseSuccess = lightdm.respond(values.password);
+    await wait(1000);
+    lightdm.start_session("bspwm");
   };
+
+  const wait = async (ms: number) => {
+    return new Promise<void>((resolve) => {
+      setTimeout(() => resolve(), ms);
+    })
+  }
 
   return(
     <Form
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
-        <form action="POST" id="login" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <label>Login:</label>
           <Field
-            name="username"
+            name="user"
             component="input"
             type="text"
           />
