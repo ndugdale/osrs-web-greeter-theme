@@ -14,6 +14,11 @@ const initGreeter = async (): Promise<void> => {
   );
 }
 
-window.addEventListener("GreeterReady", () => {
+if (process.env.NODE_ENV==="development"){
   initGreeter();
-});
+}
+else{
+  window.addEventListener("GreeterReady", () => {
+    initGreeter();
+  });
+}
