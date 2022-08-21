@@ -20,5 +20,6 @@ if (process.env.NODE_ENV==="development"){
 else{
   window.addEventListener("GreeterReady", () => {
     initGreeter();
+    console.log("RUNNING FOR LIGHTDM")
   });
 }

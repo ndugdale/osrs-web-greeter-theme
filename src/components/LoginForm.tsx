@@ -10,9 +10,9 @@ const LoginForm = () => {
 
   const onSubmit = async (values: formType) => {
     lightdm.cancel_authentication();
-    const authenticationSuccess = lightdm.authenticate(values.user)
+    lightdm.authenticate(values.user)
     await wait(100);
-    const responseSuccess = lightdm.respond(values.password);
+    lightdm.respond(values.password);
     await wait(1000);
     lightdm.start_session("bspwm");
   };
