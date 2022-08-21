@@ -1,6 +1,5 @@
 import { lightdm } from "nody-greeter-types";
 import { Field, Form } from "react-final-form"
-import React, { useEffect } from "react";
 
 type formType = {
   user: string;
