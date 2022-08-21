@@ -1,6 +1,7 @@
-import Box from "@mui/material/Box";
+import { Box, Stack } from "@mui/material";
 import LoginFormContainer from "./LoginFormContainer";
 import background from "../assets/images/backgrounds/default.jpg";
+import Logo from "./Logo";
 
 const LoginScreen = () => {
 
@@ -13,7 +14,7 @@ const LoginScreen = () => {
       alignItems: "center",
       display: "flex",
       }}>
-      <Box sx={{
+      <Stack sx={{
         width: 765,
         height: 503,
         backgroundImage: `url(${background})`,
@@ -22,8 +23,9 @@ const LoginScreen = () => {
         display: "flex",
         }}
       >
+        <Logo/>
         <LoginFormContainer/>
-      </Box>
+      </Stack>
     </Box>
     </>
   );
