@@ -33,14 +33,18 @@ const LoginForm = () => {
           <Stack>
             <Typography sx={{
               fontFamily: "RuneScape07",
+              color: "#F7F800",
+              textShadow: "1px 1px #000000",
               }}
             >
-              Enter your username &#38; password
+              Enter your username &#38; password.
             </Typography>
             <Box>
               <InputLabel sx={{
                 fontFamily: "RuneScape07",
                 display: "inline",
+                color: "#FFFFFF",
+                textShadow: "1px 1px #000000",
                 }}
               >
                 Login:
@@ -55,6 +59,8 @@ const LoginForm = () => {
               <InputLabel sx={{
                 fontFamily: "RuneScape07",
                 display: "inline",
+                color: "#FFFFFF",
+                textShadow: "1px 1px #000000",
                 }}
               >
                 Password:
@@ -73,6 +79,9 @@ const LoginForm = () => {
                   height: 41,
                   fontFamily: "RuneScape07",
                   backgroundImage: `url(${largeButton})`,
+                  textTransform: "capitalize",
+                  color: "#FFFFFF",
+                  textShadow: "1px 1px #000000",
                 }}
               >
                 Login
@@ -84,6 +93,9 @@ const LoginForm = () => {
                   height: 41,
                   fontFamily: "RuneScape07",
                   backgroundImage: `url(${largeButton})`,
+                  textTransform: "capitalize",
+                  color: "#FFFFFF",
+                  textShadow: "1px 1px #000000",
                 }}
               >
                 Shutdown
