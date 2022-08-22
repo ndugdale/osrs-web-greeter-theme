@@ -1,5 +1,6 @@
-import { lightdm } from "nody-greeter-types";
+import { Box, InputLabel, Stack, Typography } from "@mui/material";
 import { Field, Form } from "react-final-form"
+import { lightdm } from "nody-greeter-types";
 
 type formType = {
   user: string;
@@ -28,19 +29,47 @@ const LoginForm = () => {
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <label>Login:</label>
-          <Field
-            name="user"
-            component="input"
-            type="text"
-          />
-          <label>Password:</label>
-          <Field
-            name="password"
-            component="input"
-            type="password"
-          />
-          <button id="submit-button" type="submit">Submit</button>
+          <Stack>
+            <Typography sx={{
+              fontFamily: "RuneScape07",
+              }}
+            >
+              Enter your username &#38; password
+            </Typography>
+            <Box>
+              <InputLabel sx={{
+                fontFamily: "RuneScape07",
+                display: "inline",
+                }}
+              >
+                Login:
+              </InputLabel>
+              <Field
+                name="user"
+                component="input"
+                type="text"
+              />
+            </Box>
+            <Box>
+              <InputLabel sx={{
+                fontFamily: "RuneScape07",
+                display: "inline",
+                }}
+              >
+                Password:
+              </InputLabel>
+              <Field
+                name="password"
+                component="input"
+                type="password"
+              />
+            </Box>
+            <Box>
+              <button id="submit-button" type="submit">Login</button>
+              <button id="submit-button" type="submit">Shutdown</button>
+            </Box>
+            
+          </Stack>
         </form>
       )}
     />
