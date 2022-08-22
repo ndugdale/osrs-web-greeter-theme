@@ -1,6 +1,6 @@
+import background from "../assets/images/backgrounds/default.jpg";
 import { Box, Stack } from "@mui/material";
 import LoginFormContainer from "./LoginFormContainer";
-import background from "../assets/images/backgrounds/default.jpg";
 import Logo from "./Logo";
 
 const LoginScreen = () => {
@@ -8,7 +8,7 @@ const LoginScreen = () => {
   return(
     <>
     <Box sx={{
-      width: "100vw",
+      width: "100%",
       height: "100vh",
       justifyContent: "center",
       alignItems: "center",
