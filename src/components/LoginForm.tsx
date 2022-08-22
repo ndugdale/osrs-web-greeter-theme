@@ -1,6 +1,7 @@
-import { Box, InputLabel, Stack, Typography } from "@mui/material";
+import { Box, Button, InputLabel, Stack, Typography } from "@mui/material";
 import { Field, Form } from "react-final-form"
 import { lightdm } from "nody-greeter-types";
+import largeButton from "../assets/images/components/largeButton.png";
 
 type formType = {
   user: string;
@@ -65,8 +66,28 @@ const LoginForm = () => {
               />
             </Box>
             <Box>
-              <button id="submit-button" type="submit">Login</button>
-              <button id="submit-button" type="submit">Shutdown</button>
+              <Button
+                type="submit"
+                sx={{
+                  width: 147,
+                  height: 41,
+                  fontFamily: "RuneScape07",
+                  backgroundImage: `url(${largeButton})`,
+                }}
+              >
+                Login
+              </Button>
+              <Button
+                type="submit"
+                sx={{
+                  width: 147,
+                  height: 41,
+                  fontFamily: "RuneScape07",
+                  backgroundImage: `url(${largeButton})`,
+                }}
+              >
+                Shutdown
+              </Button>
             </Box>
             
           </Stack>
