@@ -25,10 +25,6 @@ function App() {
     },
   });
 
-  useEffect(() => {
-    document.body.style.backgroundColor = "black";
-  },[]);
-
   return(
     <ThemeProvider theme={theme}>
       <CssBaseline>

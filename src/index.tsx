@@ -14,12 +14,13 @@ const initGreeter = async (): Promise<void> => {
   );
 }
 
+document.body.style.backgroundColor = "black";
+
 if (process.env.NODE_ENV==="development"){
   initGreeter();
 }
 else{
   window.addEventListener("GreeterReady", () => {
     initGreeter();
-    console.log("RUNNING FOR LIGHTDM")
   });
 }

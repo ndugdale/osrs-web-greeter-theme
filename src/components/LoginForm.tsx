@@ -1,7 +1,8 @@
-import { Box, Button, InputLabel, Stack, Typography } from "@mui/material";
+import { Box, Button, InputLabel, Stack, TextField, Typography } from "@mui/material";
 import { Field, Form } from "react-final-form"
 import { lightdm } from "nody-greeter-types";
 import largeButton from "../assets/images/components/largeButton.png";
+import "./styles.css"
 
 type formType = {
   user: string;
@@ -15,7 +16,7 @@ const LoginForm = () => {
     lightdm.authenticate(values.user)
     await wait(100);
     lightdm.respond(values.password);
-    await wait(1000);
+    await wait(100);
     lightdm.start_session("bspwm");
   };
 
@@ -23,6 +24,31 @@ const LoginForm = () => {
     return new Promise<void>((resolve) => {
       setTimeout(() => resolve(), ms);
     })
+  }
+
+  const inputStyle = {
+    fontFamily: "RuneScape07",
+    color: "#FFFFFF",
+    textShadow: "1px 1px #000000",
+    backgroundColor: "transparent",
+    border: "none",
+  }
+
+  const labelStyle = {
+    fontFamily: "RuneScape07",
+    color: "#FFFFFF",
+    textShadow: "1px 1px #000000",
+    display: "inline",
+  }
+
+  const largeButtonStyle = {
+    width: 147,
+    height: 41,
+    fontFamily: "RuneScape07",
+    backgroundImage: `url(${largeButton})`,
+    textTransform: "capitalize",
+    color: "#FFFFFF",
+    textShadow: "1px 1px #000000",
   }
 
   return(
@@ -40,63 +66,44 @@ const LoginForm = () => {
               Enter your username &#38; password.
             </Typography>
             <Box>
-              <InputLabel sx={{
-                fontFamily: "RuneScape07",
-                display: "inline",
-                color: "#FFFFFF",
-                textShadow: "1px 1px #000000",
-                }}
-              >
+              <InputLabel sx={labelStyle}>
                 Login:
               </InputLabel>
               <Field
                 name="user"
-                component="input"
                 type="text"
-              />
+                component="input"
+              >
+                {({input}) => (
+                  <input {...input} style={inputStyle} className="no-focusborder" autoComplete="off"/>
+                )}
+              </Field>
             </Box>
             <Box>
-              <InputLabel sx={{
-                fontFamily: "RuneScape07",
-                display: "inline",
-                color: "#FFFFFF",
-                textShadow: "1px 1px #000000",
-                }}
-              >
+              <InputLabel sx={labelStyle}>
                 Password:
               </InputLabel>
               <Field
                 name="password"
-                component="input"
                 type="password"
-              />
+              >
+                {({input}) => (
+                  <input {...input} style={inputStyle} className="no-focusborder" autoComplete="off"/>
+                )}
+              </Field>
             </Box>
             <Box>
               <Button
+                name="login"
                 type="submit"
-                sx={{
-                  width: 147,
-                  height: 41,
-                  fontFamily: "RuneScape07",
-                  backgroundImage: `url(${largeButton})`,
-                  textTransform: "capitalize",
-                  color: "#FFFFFF",
-                  textShadow: "1px 1px #000000",
-                }}
+                sx={largeButtonStyle}
               >
                 Login
               </Button>
               <Button
+                name="shutdown"
                 type="submit"
-                sx={{
-                  width: 147,
-                  height: 41,
-                  fontFamily: "RuneScape07",
-                  backgroundImage: `url(${largeButton})`,
-                  textTransform: "capitalize",
-                  color: "#FFFFFF",
-                  textShadow: "1px 1px #000000",
-                }}
+                sx={largeButtonStyle}
               >
                 Shutdown
               </Button>
