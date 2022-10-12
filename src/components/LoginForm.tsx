@@ -1,4 +1,4 @@
-import { Box, Button, InputLabel, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, InputLabel, Typography } from "@mui/material";
 import { Field, Form } from "react-final-form"
 import { lightdm } from "nody-greeter-types";
 import largeButton from "../assets/images/components/largeButton.png";
@@ -41,6 +41,11 @@ const LoginForm = () => {
     display: "inline",
   }
 
+  const labelBoxStyle = {
+    mx: "4.4rem",
+    height: "1.0rem",
+  }
+
   const largeButtonStyle = {
     width: 147,
     height: 41,
@@ -56,7 +61,12 @@ const LoginForm = () => {
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
-          <Stack>
+          <Box sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: "1.8rem",
+            mb: "0.7rem"
+          }}>
             <Typography sx={{
               fontFamily: "RuneScape07",
               color: "#F7F800",
@@ -65,51 +75,61 @@ const LoginForm = () => {
             >
               Enter your username &#38; password.
             </Typography>
-            <Box>
-              <InputLabel sx={labelStyle}>
-                Login:
-              </InputLabel>
-              <Field
-                name="user"
-                type="text"
-                component="input"
-              >
-                {({input}) => (
-                  <input {...input} style={inputStyle} className="no-focusborder" autoComplete="off"/>
-                )}
-              </Field>
-            </Box>
-            <Box>
-              <InputLabel sx={labelStyle}>
-                Password:
-              </InputLabel>
-              <Field
-                name="password"
-                type="password"
-              >
-                {({input}) => (
-                  <input {...input} style={inputStyle} className="no-focusborder" autoComplete="off"/>
-                )}
-              </Field>
-            </Box>
-            <Box>
-              <Button
-                name="login"
-                type="submit"
-                sx={largeButtonStyle}
-              >
-                Login
-              </Button>
-              <Button
-                name="shutdown"
-                type="submit"
-                sx={largeButtonStyle}
-              >
-                Shutdown
-              </Button>
-            </Box>
-            
-          </Stack>
+          </Box>
+          <Box sx={labelBoxStyle}>
+            <InputLabel sx={labelStyle}>
+              Login:
+            </InputLabel>
+            <Field
+              name="user"
+              type="text"
+              component="input"
+            > 
+              {({input}) => (
+                <input {...input} style={inputStyle} autoComplete="off"/>
+              )}
+            </Field>
+          </Box>
+          <Box sx={labelBoxStyle}>
+            <InputLabel sx={labelStyle}>
+              Password:
+            </InputLabel>
+            <Field
+              name="password"
+              type="password"
+            >
+              {({input}) => (
+                <input {...input} style={inputStyle} autoComplete="off"/>
+              )}
+            </Field>
+          </Box>
+          <Box sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: "1.9rem",
+            mx: "1.3rem",
+          }}>
+            <Grid container>
+              <Grid item xs={6} textAlign="center">
+                <Button
+                  name="login"
+                  type="submit"
+                  sx={largeButtonStyle}
+                >
+                  Login
+                </Button>
+              </Grid>
+              <Grid item xs={6} textAlign="center">
+                <Button
+                  name="shutdown"
+                  type="submit"
+                  sx={largeButtonStyle}
+                >
+                  Shutdown
+                </Button>
+              </Grid>
+            </Grid>
+          </Box>
         </form>
       )}
     />

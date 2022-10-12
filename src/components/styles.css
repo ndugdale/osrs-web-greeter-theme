@@ -1,3 +1,8 @@
 input:focus {
   outline-style: none;
 }
+
+input[type="text"]
+{
+  font-size: 1rem;
+}

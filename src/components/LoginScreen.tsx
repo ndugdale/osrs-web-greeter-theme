@@ -18,7 +18,6 @@ const LoginScreen = () => {
         width: 765,
         height: 503,
         backgroundImage: `url(${background})`,
-        justifyContent: "center",
         alignItems: "center",
         display: "flex",
         }}

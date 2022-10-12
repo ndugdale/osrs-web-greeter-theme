@@ -8,6 +8,7 @@ const Logo = () => {
         width: 448,
         height: 147,
         backgroundImage: `url(${logo})`,
+        my: '0.8rem'
       }}
     />
   );
