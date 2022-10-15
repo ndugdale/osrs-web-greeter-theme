@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import LoginScreen from './components/LoginScreen';
+import FormWrapper from './components/FormWrapper';
 import RuneScape07 from "./fonts/RuneScape-Chat-Bold-07.woff";
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
@@ -7,7 +6,7 @@ function App() {
 
   const theme = createTheme({
     typography: {
-      fontFamily: "runescape_uf",
+      fontFamily: "RuneScape07",
     },
     components: {
       MuiCssBaseline: {
@@ -28,7 +27,7 @@ function App() {
   return(
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <LoginScreen/>
+        <FormWrapper/>
       </CssBaseline>
     </ThemeProvider>
   );

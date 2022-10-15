@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box";
 import background from "../assets/images/components/loginContainer.png"
-import LoginForm from "./LoginForm";
+import CentralContents from "./CentralContents";
 
-const loginFormContainer = () => {
+const CentralContainer = () => {
   
   return(
     <Box sx={{
@@ -13,9 +13,9 @@ const loginFormContainer = () => {
         alignItems: "center",
       }}
     >
-      <LoginForm/>
+      <CentralContents/>
     </Box>
   );
 }
 
-export default loginFormContainer;
+export default CentralContainer;
