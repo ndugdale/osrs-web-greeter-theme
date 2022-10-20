@@ -15,9 +15,16 @@ const SessionSelect = () => {
     display: "block",
   }
   
+  const devSessionList = ["bspwm", "sowm", "i3"];
+  const devDefaultSession = devSessionList[0];
+
   const userList: LightDMUser[] = lightdm?.users;
-  const sessionList: string[] = lightdm?.sessions?.map(s => s.name);
-  const defaultSession: string = userList?.[0]?.session ?? null;
+  const sessionList: string[] = process.env.NODE_ENV==="development"
+    ? devSessionList
+    : lightdm?.sessions?.map(s => s.name);
+  const defaultSession: string = process.env.NODE_ENV==="development"
+    ? devDefaultSession
+    : userList?.[0]?.session ?? null;
 
   return(
     <Field
