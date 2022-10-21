@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@types/webpack-env": "^1.18.0",
     "file-loader": "^6.2.0"
   }
 }

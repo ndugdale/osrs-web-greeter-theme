@@ -13,5 +13,5 @@ do
 done
 
 # copy build to theme directory
-mkdir -p /usr/share/web-greeter/osrs
+mkdir -p /usr/share/web-greeter/themes/osrs
 cp -a build/. /usr/share/web-greeter/themes/osrs/

@@ -1,10 +1,13 @@
 import { Box, Grid, Stack } from "@mui/material";
+import { useContext } from "react";
+import BackgroundSelect from "./BackgroundSelect";
 import CentralContainer from "./CentralContainer";
+import { ConfigContext, configType } from "./Configuration";
 import Logo from "./Logo";
-import background from "../assets/images/backgrounds/default.jpg";
 import SessionSelect from "./SessionSelect";
 
 const LoginScreen = () => {
+  const config: configType = useContext(ConfigContext) as configType;
   return(
     <>
       <Box sx={{
@@ -17,7 +20,7 @@ const LoginScreen = () => {
         <Stack sx={{
           width: 765,
           height: 503,
-          backgroundImage: `url(${background})`,
+          backgroundImage: `url(${config.background})`,
           display: "flex",
           justifyContent: "space-between",
           }}
@@ -27,7 +30,15 @@ const LoginScreen = () => {
             display: "flex",
             alignItems: "center",
           }}>
-            <Logo/>
+            <Grid container justifyContent="center">
+              <Grid item xs={2}/>
+              <Grid item xs={8}>
+                <Logo/>
+              </Grid>
+              <Grid item xs={2}>
+                <BackgroundSelect/>
+              </Grid>
+            </Grid>
             <CentralContainer/>
           </Stack>
           <Grid container>
@@ -40,7 +51,6 @@ const LoginScreen = () => {
               {/* TODO: add music button */}
             </Grid>
           </Grid>
-          
         </Stack>
       </Box>
     </>

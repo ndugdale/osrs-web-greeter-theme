@@ -1,6 +1,7 @@
 import { Form } from "react-final-form";
 import { lightdm } from "nody-greeter-types";
 import LoginScreen from "./LoginScreen";
+import Configuration from "./Configuration";
 
 type formType = {
   user: string;
@@ -28,7 +29,9 @@ const FormWrapper = () => {
       {({ handleSubmit }) => {
         return(
         <form onSubmit={handleSubmit}>
-          <LoginScreen/>
+          <Configuration>
+            <LoginScreen/>
+          </Configuration>
         </form>
       )}}
     </Form>
