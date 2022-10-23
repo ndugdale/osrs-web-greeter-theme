@@ -40,7 +40,7 @@ const Configuration = ({children}: any) => {
 
   useEffect(() => {
     setConfig({...config, updateBackground: updateBackground});
-  }, [config.background])
+  }, [config])
 
   return (
     <ConfigContext.Provider value={config}>
