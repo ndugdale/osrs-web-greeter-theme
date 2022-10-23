@@ -4,6 +4,7 @@ import BackgroundSelect from "./BackgroundSelect";
 import CentralContainer from "./CentralContainer";
 import { ConfigContext, configType } from "./Configuration";
 import Logo from "./Logo";
+import MusicButton from "./MusicButton";
 import SessionSelect from "./SessionSelect";
 
 const LoginScreen = () => {
@@ -48,7 +49,15 @@ const LoginScreen = () => {
               </Box>
             </Grid>
             <Grid item xs={6}>
-              {/* TODO: add music button */}
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  m: "0.4rem",
+                }}
+              >
+                <MusicButton/>
+              </Box>
             </Grid>
           </Grid>
         </Stack>
