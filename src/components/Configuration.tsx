@@ -25,6 +25,7 @@ const Configuration = ({children}: any) => {
       updateBackground: updateBackground,
     }
   );
+  const [update, setUpdate] = useState(false);
 
   updateBackground = (increment: boolean) => {
     const index = backgrounds.indexOf(config.background);
@@ -36,11 +37,15 @@ const Configuration = ({children}: any) => {
     const newBackground = backgrounds[newIndex];
     localStorage.setItem("background", newBackground);
     setConfig({...config, background: newBackground});
+    setUpdate(true);
   }
 
   useEffect(() => {
-    setConfig({...config, updateBackground: updateBackground});
-  }, [config])
+    if (update){
+      setConfig({...config, updateBackground: updateBackground});
+      setUpdate(false);
+    }
+  }, [config, update])
 
   return (
     <ConfigContext.Provider value={config}>
