@@ -5,6 +5,8 @@ export const ConfigContext = React.createContext({});
 export interface configType {
   background: string;
   updateBackground: (increment: boolean) => void;
+  unmuted: boolean;
+  updateUnmuted: () => void;
 }
 
 const Configuration = ({children}: any) => {
@@ -19,10 +21,15 @@ const Configuration = ({children}: any) => {
 
   const initialBackground = localStorage.getItem('background') ?? defaultBackground;
   let updateBackground = (_: boolean) => {};
+  const initialUnmuted = localStorage.getItem('unmuted') === "true";
+  let updateUnmuted = () => {};
+
   const [config, setConfig] = useState<configType>(
     {
       background: initialBackground,
       updateBackground: updateBackground,
+      unmuted: initialUnmuted,
+      updateUnmuted: updateUnmuted,
     }
   );
   const [update, setUpdate] = useState(false);
@@ -40,12 +47,35 @@ const Configuration = ({children}: any) => {
     setUpdate(true);
   }
 
+  updateUnmuted = () => {
+    const next = !config.unmuted;
+    localStorage.setItem("unmuted", next.toString());
+    setConfig({...config, unmuted: next});
+    setUpdate(true);
+  }
+
   useEffect(() => {
-    if (update){
-      setConfig({...config, updateBackground: updateBackground});
+    if(update){
+      setConfig({
+        ...config,
+        updateBackground: updateBackground,
+        updateUnmuted: updateUnmuted,
+      });
       setUpdate(false);
     }
   }, [config, update])
+
+  useEffect(() => {
+    setConfig({
+      ...config,
+      updateBackground: updateBackground,
+      updateUnmuted: updateUnmuted,
+    });
+    
+    // NOTE: Run effect once on component mount, please
+    // recheck dependencies if effect is updated.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <ConfigContext.Provider value={config}>
