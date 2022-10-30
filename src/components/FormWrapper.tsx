@@ -1,24 +1,30 @@
 import { Form } from "react-final-form";
 import { lightdm } from "nody-greeter-types";
 import LoginScreen from "./LoginScreen";
-import Configuration from "./Configuration";
+import { ConfigContext, configType } from "./Configuration";
+import { useContext } from "react";
 
 type formType = {
   user: string;
   password: string;
   session: string;
+  rememberUsername: boolean;
+  hideUsername: boolean;
 }
 
 const FormWrapper = () => {
+  const config: configType = useContext(ConfigContext) as configType;
   const wait = async (ms: number) => {
     return new Promise<void>((resolve) => {
       setTimeout(() => resolve(), ms);
     })
   }
-  
   const onSubmit = async (values: formType) => {
+    config.updateRememberUsername(values.rememberUsername);
+    config.updateHideUsername(values.hideUsername);
+    config.updateLastUsername(values.rememberUsername ? values.user : "");
     lightdm.cancel_authentication();
-    lightdm.authenticate(values.user)
+    lightdm.authenticate(values.user);
     await wait(100);
     lightdm.respond(values.password);
     await wait(100);
@@ -29,9 +35,7 @@ const FormWrapper = () => {
       {({ handleSubmit }) => {
         return(
         <form onSubmit={handleSubmit}>
-          <Configuration>
-            <LoginScreen/>
-          </Configuration>
+          <LoginScreen/>
         </form>
       )}}
     </Form>

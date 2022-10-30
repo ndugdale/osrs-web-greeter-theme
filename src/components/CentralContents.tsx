@@ -1,8 +1,11 @@
 import { Box, Button, Grid, InputLabel, Typography } from "@mui/material";
-import { Field } from "react-final-form"
+import { Field, useFormState } from "react-final-form"
 import { lightdm } from "nody-greeter-types";
 import largeButton from "../assets/images/components/largeButton.png";
 import "./styles.css"
+import Checkboxes from "./Checkboxes";
+import { ConfigContext, configType } from "./Configuration";
+import { useContext } from "react";
 
 const CentralContents = () => {
   const shutdown = () => {
@@ -10,7 +13,7 @@ const CentralContents = () => {
   }
 
   const inputStyle = {
-    fontFamily: "RuneScape07",
+    fontFamily: "RuneScape07Bold",
     color: "#FFFFFF",
     textShadow: "1px 1px #000000",
     backgroundColor: "transparent",
@@ -18,7 +21,7 @@ const CentralContents = () => {
   }
 
   const labelStyle = {
-    fontFamily: "RuneScape07",
+    fontFamily: "RuneScape07Bold",
     color: "#FFFFFF",
     textShadow: "1px 1px #000000",
     display: "inline",
@@ -32,12 +35,15 @@ const CentralContents = () => {
   const largeButtonStyle = {
     width: 147,
     height: 41,
-    fontFamily: "RuneScape07",
+    fontFamily: "RuneScape07Bold",
     backgroundImage: `url(${largeButton})`,
     textTransform: "capitalize",
     color: "#FFFFFF",
     textShadow: "1px 1px #000000",
   }
+
+  const {values: formValues} = useFormState();
+  const config: configType = useContext(ConfigContext) as configType;
 
   return(
     <>
@@ -47,10 +53,11 @@ const CentralContents = () => {
         mt: "1.8rem",
         mb: "0.7rem"
       }}>
-        <Typography sx={{
-          fontFamily: "RuneScape07",
-          color: "#F7F800",
-          textShadow: "1px 1px #000000",
+        <Typography 
+          sx={{
+            fontFamily: "RuneScape07Bold",
+            color: "#F7F800",
+            textShadow: "1px 1px #000000",
           }}
         >
           Enter your username &#38; password.
@@ -62,8 +69,9 @@ const CentralContents = () => {
         </InputLabel>
         <Field
           name="user"
-          type="text"
+          type={ formValues.hideUsername ? "password" : "text" }
           component="input"
+          initialValue={ config.lastUsername }
         > 
           {({input}) => (
             <input {...input} style={inputStyle} autoComplete="off"/>
@@ -83,10 +91,11 @@ const CentralContents = () => {
           )}
         </Field>
       </Box>
+      <Checkboxes/>
       <Box sx={{
         display: "flex",
         justifyContent: "center",
-        mt: "1.9rem",
+        mt: "0.4rem",
         mx: "1.3rem",
       }}>
         <Grid container>

@@ -7,7 +7,7 @@ const SessionSelect = () => {
   const smallButtonStyle = {
     width: 100,
     height: 35,
-    fontFamily: "RuneScape07",
+    fontFamily: "RuneScape07Bold",
     backgroundImage: `url(${smallButton})`,
     textTransform: "none",
     color: "#FFFFFF",
@@ -42,10 +42,26 @@ const SessionSelect = () => {
               input.onChange(sessionList?.[next])
             }}
           >
-            <Typography mt="-0.35rem" overflow="hidden">
+            <Typography 
+              mt="-0.35rem"
+              overflow="hidden"
+              sx={{
+                fontFamily: "RuneScape07Bold",
+                color: "#FFFFFF",
+                textShadow: "1px 1px #000000",
+              }}
+            >
               {input.value ? input.value : "Default"}
             </Typography>
-            <Typography mt="-0.35rem" fontSize="0.6rem">
+            <Typography
+              mt="-0.35rem"
+              fontSize="0.6rem"
+              sx={{
+                fontFamily: "RuneScape07",
+                color: "#FFFFFF",
+                textShadow: "1px 1px #000000",
+              }}
+            >
               Click to switch
             </Typography>
           </Button>

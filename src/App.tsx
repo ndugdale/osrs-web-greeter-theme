@@ -1,13 +1,12 @@
 import FormWrapper from './components/FormWrapper';
-import RuneScape07 from "./fonts/RuneScape-Chat-Bold-07.woff";
+import RuneScape07 from "./fonts/RuneScape-Chat-07.woff";
+import RuneScape07Bold from "./fonts/RuneScape-Chat-Bold-07.woff";
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import Configuration from './components/Configuration';
 
 function App() {
 
   const theme = createTheme({
-    typography: {
-      fontFamily: "RuneScape07",
-    },
     components: {
       MuiCssBaseline: {
         styleOverrides: `
@@ -15,8 +14,16 @@ function App() {
             font-family: 'RuneScape07';
             font-style: normal;
             font-display: swap;
-            font-weight: 400;
+            font-weight: regular;
             src: local('RuneScape07'), url(${RuneScape07}) format('woff');
+            unicodeRange: U+0030-0039, U+0041-005A, U+0061-007A;
+          }
+          @font-face {
+            font-family: 'RuneScape07Bold';
+            font-style: normal;
+            font-display: swap;
+            font-weight: regular;
+            src: local('RuneScape07Bold'), url(${RuneScape07Bold}) format('woff');
             unicodeRange: U+0030-0039, U+0041-005A, U+0061-007A;
           }
         `,
@@ -27,7 +34,9 @@ function App() {
   return(
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <FormWrapper/>
+        <Configuration>
+          <FormWrapper/>
+        </Configuration>
       </CssBaseline>
     </ThemeProvider>
   );
