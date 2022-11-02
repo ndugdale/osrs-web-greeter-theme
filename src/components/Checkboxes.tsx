@@ -26,7 +26,7 @@ const Checkboxes = () => {
     fontFamily: "RuneScape07",
     color: "#F7F800",
     textShadow: "1px 1px #000000",
-    fontSize: "0.8rem",
+    fontSize: "0.85rem",
   }
 
   const form = useForm();
@@ -41,7 +41,7 @@ const Checkboxes = () => {
   
   return(
     <Box display="flex" justifyContent="center" mt="0.5rem">
-      <Box display="flex" mr="0.7rem">
+      <Box display="flex" mr="0.6rem">
         <Field
           name="rememberUsername"
           initialValue={config.rememberUsername}
@@ -59,7 +59,7 @@ const Checkboxes = () => {
           Remember username
         </Typography>
       </Box>
-      <Box display="flex" ml="0.7rem">
+      <Box display="flex" ml="0.6rem">
         <Field
           name="hideUsername"
           initialValue={config.hideUsername}

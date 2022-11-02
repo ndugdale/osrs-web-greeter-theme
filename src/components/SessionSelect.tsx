@@ -43,7 +43,7 @@ const SessionSelect = () => {
             }}
           >
             <Typography 
-              mt="-0.35rem"
+              mt="-0.4rem"
               overflow="hidden"
               sx={{
                 fontFamily: "RuneScape07Bold",
@@ -54,8 +54,8 @@ const SessionSelect = () => {
               {input.value ? input.value : "Default"}
             </Typography>
             <Typography
-              mt="-0.35rem"
-              fontSize="0.6rem"
+              mt="-0.5rem"
+              fontSize="0.8rem"
               sx={{
                 fontFamily: "RuneScape07",
                 color: "#FFFFFF",
