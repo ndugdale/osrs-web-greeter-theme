@@ -2,7 +2,7 @@ import { Form } from "react-final-form";
 import { lightdm } from "nody-greeter-types";
 import LoginScreen from "./LoginScreen";
 import { ConfigContext, configType } from "./Configuration";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 type formType = {
   user: string;
@@ -18,11 +18,21 @@ const FormWrapper = () => {
     return new Promise<void>((resolve) => {
       setTimeout(() => resolve(), ms);
     })
-  }
+  };
+  const [showProgessBar, setShowProgressBar] = useState(false);
   const onSubmit = async (values: formType) => {
     config.updateRememberUsername(values.rememberUsername);
     config.updateHideUsername(values.hideUsername);
     config.updateLastUsername(values.rememberUsername ? values.user : "");
+    if(config.valuesChanged(
+        values.rememberUsername,
+        values.hideUsername,
+        values.user
+      )){
+      setShowProgressBar(true);
+      await wait(5000);
+    }else{
+    }
     lightdm.cancel_authentication();
     lightdm.authenticate(values.user);
     await wait(100);
@@ -35,7 +45,7 @@ const FormWrapper = () => {
       {({ handleSubmit }) => {
         return(
         <form onSubmit={handleSubmit}>
-          <LoginScreen/>
+          <LoginScreen showProgressBar={showProgessBar}/>
         </form>
       )}}
     </Form>

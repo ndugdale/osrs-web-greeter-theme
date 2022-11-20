@@ -13,6 +13,7 @@ export interface configType {
   updateHideUsername: (hide: boolean) => void;
   lastUsername: string;
   updateLastUsername: (username: string) => void;
+  valuesChanged: (remember: boolean, hide: boolean, username: string) => boolean;
 }
 
 const Configuration = ({children}: any) => {
@@ -35,6 +36,15 @@ const Configuration = ({children}: any) => {
   let updateHideUsername = (_: boolean) => {};
   const initialLastUsername = localStorage.getItem('lastUsername') ?? "";
   let updateLastUsername = (_: string) => {};
+  let valuesChanged = (_0: boolean, _1: boolean, _2: string) => false;
+
+  const [initialValues] = useState({
+    background: initialBackground,
+    unmuted: initialUnmuted,
+    rememberUsername: initialRememberUsername,
+    hideUsername: initialHideUsername,
+    lastUsername: initialLastUsername,
+  });
 
   const [config, setConfig] = useState<configType>(
     {
@@ -48,8 +58,20 @@ const Configuration = ({children}: any) => {
       updateHideUsername: updateHideUsername,
       lastUsername: initialLastUsername,
       updateLastUsername: updateLastUsername,
+      valuesChanged: valuesChanged,
     }
   );
+
+  valuesChanged = (remember, hide, username) => {
+    return (
+      config.background !== initialValues.background ||
+      config.unmuted !== initialValues.unmuted ||
+      remember !== initialValues.rememberUsername ||
+      hide !== initialValues.hideUsername ||
+      (remember && username !== initialValues.lastUsername)
+    );
+  }
+
   const [update, setUpdate] = useState(false);
 
   updateBackground = (increment: boolean) => {
@@ -99,6 +121,7 @@ const Configuration = ({children}: any) => {
         updateRememberUsername: updateRememberUsername,
         updateHideUsername: updateHideUsername,
         updateLastUsername: updateLastUsername,
+        valuesChanged: valuesChanged,
       });
       setUpdate(false);
     }
@@ -112,6 +135,7 @@ const Configuration = ({children}: any) => {
       updateRememberUsername: updateRememberUsername,
       updateHideUsername: updateHideUsername,
       updateLastUsername: updateLastUsername,
+      valuesChanged: valuesChanged,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

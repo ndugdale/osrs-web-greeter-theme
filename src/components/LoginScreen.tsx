@@ -5,9 +5,10 @@ import CentralContainer from "./CentralContainer";
 import { ConfigContext, configType } from "./Configuration";
 import Logo from "./Logo";
 import MusicButton from "./MusicButton";
+import ProgressBar from "./ProgressBar";
 import SessionSelect from "./SessionSelect";
 
-const LoginScreen = () => {
+const LoginScreen = ({showProgressBar}: {showProgressBar: boolean}) => {
   const config: configType = useContext(ConfigContext) as configType;
   return(
     <>
@@ -36,30 +37,37 @@ const LoginScreen = () => {
               <Grid item xs={8}>
                 <Logo/>
               </Grid>
-              <Grid item xs={2}>
-                <BackgroundSelect/>
+              {!showProgressBar && (
+                <Grid item xs={2}>
+                  <BackgroundSelect/>
+                </Grid>
+              )}
+            </Grid>
+            {!showProgressBar
+              ? (<CentralContainer/>)
+              : (<ProgressBar/>)
+            }
+          </Stack>
+          {!showProgressBar && (
+            <Grid container>
+              <Grid item xs={6}>
+                <Box sx={{m: "0.4rem"}}>
+                  <SessionSelect/>
+                </Box>
+              </Grid>
+              <Grid item xs={6}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    m: "0.4rem",
+                  }}
+                >
+                  <MusicButton/>
+                </Box>
               </Grid>
             </Grid>
-            <CentralContainer/>
-          </Stack>
-          <Grid container>
-            <Grid item xs={6}>
-              <Box sx={{m: "0.4rem"}}>
-                <SessionSelect/>
-              </Box>
-            </Grid>
-            <Grid item xs={6}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  m: "0.4rem",
-                }}
-              >
-                <MusicButton/>
-              </Box>
-            </Grid>
-          </Grid>
+          )}
         </Stack>
       </Box>
     </>
