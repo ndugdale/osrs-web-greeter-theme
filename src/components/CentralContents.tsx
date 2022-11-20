@@ -18,6 +18,7 @@ const CentralContents = ({error}: {error: boolean}) => {
     textShadow: "1px 1px #000000",
     backgroundColor: "transparent",
     border: "none",
+    caretColor: "#F7F800",
   }
 
   const labelStyle = {
