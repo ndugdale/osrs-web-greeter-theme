@@ -5,7 +5,7 @@ import largeButton from "../assets/images/components/largeButton.png";
 import "./styles.css"
 import Checkboxes from "./Checkboxes";
 import { ConfigContext, configType } from "./Configuration";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const CentralContents = () => {
   const shutdown = () => {
@@ -42,8 +42,24 @@ const CentralContents = () => {
     textShadow: "1px 1px #000000",
   }
 
+  const capsLockMessageStyle = {
+    fontFamily: "RuneScape07",
+    color: "#FFFFFF",
+    textShadow: "1px 1px #000000",
+    fontSize: "0.85rem",
+  }
+
   const {values: formValues} = useFormState();
   const config: configType = useContext(ConfigContext) as configType;
+  const [isCapsLockOn, setIsCapsLockOn] = useState(false);
+
+  ['keyup', 'keydown'].forEach((type) => {
+    window.addEventListener(type, (e) => {
+      const event = e as KeyboardEvent;
+      const capsLock = event.getModifierState('CapsLock');
+      setIsCapsLockOn(capsLock);
+    });
+  });
 
   return(
     <>
@@ -118,7 +134,15 @@ const CentralContents = () => {
             </Button>
           </Grid>
         </Grid>
-      </Box>      
+      </Box>
+      {isCapsLockOn && (
+        <Box sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}>
+          <Typography sx={capsLockMessageStyle}>CapsLock is on</Typography>  
+        </Box>
+      )}
     </>
   );
 }
