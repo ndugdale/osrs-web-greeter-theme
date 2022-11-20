@@ -8,7 +8,7 @@ import MusicButton from "./MusicButton";
 import ProgressBar from "./ProgressBar";
 import SessionSelect from "./SessionSelect";
 
-const LoginScreen = ({showProgressBar}: {showProgressBar: boolean}) => {
+const LoginScreen = ({showProgressBar, error}: {showProgressBar: boolean, error: boolean}) => {
   const config: configType = useContext(ConfigContext) as configType;
   return(
     <>
@@ -44,7 +44,7 @@ const LoginScreen = ({showProgressBar}: {showProgressBar: boolean}) => {
               )}
             </Grid>
             {!showProgressBar
-              ? (<CentralContainer/>)
+              ? (<CentralContainer error={error}/>)
               : (<ProgressBar/>)
             }
           </Stack>

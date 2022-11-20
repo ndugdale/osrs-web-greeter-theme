@@ -7,7 +7,7 @@ import Checkboxes from "./Checkboxes";
 import { ConfigContext, configType } from "./Configuration";
 import { useContext, useState } from "react";
 
-const CentralContents = () => {
+const CentralContents = ({error}: {error: boolean}) => {
   const shutdown = () => {
     lightdm.shutdown();
   }
@@ -76,7 +76,10 @@ const CentralContents = () => {
             textShadow: "1px 1px #000000",
           }}
         >
-          Enter your username &#38; password.
+          {!error
+            ? `Enter your username & password.`
+            : "Login failed, try again."
+          }
         </Typography>
       </Box>
       <Box sx={labelBoxStyle}>

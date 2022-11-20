@@ -20,6 +20,7 @@ const FormWrapper = () => {
     })
   };
   const [showProgessBar, setShowProgressBar] = useState(false);
+  const [error, setError] = useState(false);
   const onSubmit = async (values: formType) => {
     config.updateRememberUsername(values.rememberUsername);
     config.updateHideUsername(values.hideUsername);
@@ -38,14 +39,19 @@ const FormWrapper = () => {
     await wait(100);
     lightdm.respond(values.password);
     await wait(100);
-    lightdm.start_session(values.session);
+    if(lightdm.is_authenticated){
+      lightdm.start_session(values.session);
+    } else {
+      setError(true);
+    };
+    
   };
   return(
     <Form onSubmit={onSubmit}>
       {({ handleSubmit }) => {
         return(
         <form onSubmit={handleSubmit}>
-          <LoginScreen showProgressBar={showProgessBar}/>
+          <LoginScreen showProgressBar={showProgessBar} error={error}/>
         </form>
       )}}
     </Form>

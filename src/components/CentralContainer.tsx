@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import background from "../assets/images/components/loginContainer.png"
 import CentralContents from "./CentralContents";
 
-const CentralContainer = () => {
+const CentralContainer = ({error}: {error: boolean}) => {
   
   return(
     <Box sx={{
@@ -13,7 +13,7 @@ const CentralContainer = () => {
         alignItems: "center",
       }}
     >
-      <CentralContents/>
+      <CentralContents error={error}/>
     </Box>
   );
 }
