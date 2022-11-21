@@ -40,8 +40,9 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#uninstallation">Uninstallation</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a href="#licence">Licence</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -49,8 +50,9 @@
 
 <!-- ABOUT THE PROJECT -->
 # About The Project
-
-![Osrs Login Screen Shot][product-screenshot]
+<p align="center">
+  <img src="/docs/images/login-main.png?raw=true" alt="Screenshot of osrs login theme"/>
+</p>
 
 This project is a login screen inspired by the popular MMORPG, [**Old School RuneScape**](https://oldschool.runescape.com/). This login screen is written for use with the [**LightDM**](https://github.com/canonical/lightdm) login manager using either [**Web Greeter**](https://github.com/JezerM/web-greeter) or [**Nody Greeter**](https://github.com/JezerM/nody-greeter). This project is in no way supported by or affiliated with Old School RuneScape or Jagex, and exists solely for the purpose of education and parody.
 
@@ -132,7 +134,7 @@ greeter:
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+# Usage
 
 The osrs login theme comes with support for:
 * Remembering usernames
@@ -140,13 +142,16 @@ The osrs login theme comes with support for:
 * Desktop session select
 * Music toggle
 * Switching between Old School RuneScape login screen backgrounds
+* Saving the above preferences
 
-https://user-images.githubusercontent.com/67626400/202997025-8419ecf7-c806-4828-9bb6-81c509adc0ed.mp4
+<div align="center">
+  <video src="https://user-images.githubusercontent.com/67626400/202997025-8419ecf7-c806-4828-9bb6-81c509adc0ed.mp4"/>
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- UNINSTALLATION -->
-## Uninstallation
+# Uninstallation
 
 To change to a different login theme, simply change the `greeter.theme` property in `/etc/lightdm/web-greeter.yml`. The names of other installed themes are given by folder names in the theme folder `/usr/share/web-greeter/themes/` (`dracula` and `gruvbox` themes are shipped with the greeters by default).
 
@@ -159,7 +164,7 @@ To remove the `osrs` theme entirely:
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". **Don't forget to give the project a star! Thanks again!**
+If you have a suggestion that would make this project better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". **Don't forget to give the project a star! Thanks again!**
 
 1. Fork the Project
 2. Create your Feature Branch 
@@ -180,11 +185,10 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 
 
-<!-- LICENSE -->
-# License
+<!-- LICENCE -->
+# Licence
 
 Distributed under the MIT Licence. See `LICENCE.md` for more information.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -193,7 +197,6 @@ Distributed under the MIT Licence. See `LICENCE.md` for more information.
 # Contact
 
 Project Link: [https://github.com/ndugdale/osrs-web-greeter-theme](https://github.com/ndugdale/osrs-web-greeter-theme)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -223,7 +226,6 @@ This project was only possible due to the works of others, and so I would like t
 [license-url]: https://github.com/ndugdale/osrs-web-greeter-theme/blob/main/LICENCE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: /docs/images/login-main.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [MUI.js]: https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white
