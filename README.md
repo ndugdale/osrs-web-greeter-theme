@@ -46,12 +46,11 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
-<br>
 
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
-![Product Name Screen Shot][product-screenshot]
+![Osrs Login Screen Shot][product-screenshot]
 
 This project is a login screen inspired by the popular MMORPG, [**Old School RuneScape**](https://oldschool.runescape.com/). This login screen is written for use with the [**LightDM**](https://github.com/canonical/lightdm) login manager using either [**Web Greeter**](https://github.com/JezerM/web-greeter) or [**Nody Greeter**](https://github.com/JezerM/nody-greeter). This project is in no way supported by or affiliated with Old School RuneScape or Jagex, and exists solely for the purpose of education and parody.
 
@@ -142,7 +141,7 @@ The osrs login theme comes with support for:
 * Music toggle
 * Switching between Old School RuneScape login screen backgrounds
 
-
+https://user-images.githubusercontent.com/67626400/202997025-8419ecf7-c806-4828-9bb6-81c509adc0ed.mp4
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
