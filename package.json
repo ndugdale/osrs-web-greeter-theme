@@ -2,7 +2,7 @@
   "name": "osrs-web-greeter-theme",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ndugdale.github.io",
+  "homepage": "https://ndugdale.github.io/osrs-web-greeter-theme/",
   "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.10.0",
