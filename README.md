@@ -224,8 +224,6 @@ This project was only possible due to the works of others, and so I would like t
 [issues-url]: https://github.com/ndugdale/osrs-web-greeter-theme/issues
 [license-shield]: https://img.shields.io/github/license/ndugdale/osrs-web-greeter-theme.svg?style=for-the-badge
 [license-url]: https://github.com/ndugdale/osrs-web-greeter-theme/blob/main/LICENCE.md
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [MUI.js]: https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white
