@@ -5,8 +5,22 @@ import App from './App';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+
+const initGreeter = async (): Promise<void> => {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}
+
+document.body.style.backgroundColor = "black";
+
+if (process.env.NODE_ENV==="development"){
+  initGreeter();
+}
+else{
+  window.addEventListener("GreeterReady", () => {
+    initGreeter();
+  });
+}
