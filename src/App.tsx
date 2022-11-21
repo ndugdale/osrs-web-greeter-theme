@@ -1,6 +1,6 @@
 import FormWrapper from './components/FormWrapper';
-import RuneScape07 from "./fonts/RuneScape-Chat-07.woff";
-import RuneScape07Bold from "./fonts/RuneScape-Chat-Bold-07.woff";
+import RuneScape07 from "./fonts/Runescape-Plain-12.woff";
+import RuneScape07Bold from "./fonts/Runescape-Bold-12.woff";
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import Configuration from './components/Configuration';
 
