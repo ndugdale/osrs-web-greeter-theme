@@ -6,11 +6,8 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-<br />
 <div align="center">
-
-<h3 align="center">Osrs Login Theme</h3>
-
+<h1 align="center"><strong>Osrs Login Theme</strong></h1>
   <p align="center">
     A login theme for Web Greeter and Nody Greeter LightDM greeters.
     <br />
@@ -49,13 +46,14 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+<br>
 
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
 ![Product Name Screen Shot][product-screenshot]
 
-This project is a login screen inspired by the popular MMORPG, [**Old School Runescape**](https://oldschool.runescape.com/). This login screen is written for use with the [**LightDM**](https://github.com/canonical/lightdm) login manager using either [**Web Greeter**](https://github.com/JezerM/web-greeter) or [**Nody Greeter**](https://github.com/JezerM/nody-greeter). This project is in no way supported by or affiliated with Old School Runescape or Jagex, and exists solely for the purpose of education and parody.
+This project is a login screen inspired by the popular MMORPG, [**Old School RuneScape**](https://oldschool.runescape.com/). This login screen is written for use with the [**LightDM**](https://github.com/canonical/lightdm) login manager using either [**Web Greeter**](https://github.com/JezerM/web-greeter) or [**Nody Greeter**](https://github.com/JezerM/nody-greeter). This project is in no way supported by or affiliated with Old School RuneScape or Jagex, and exists solely for the purpose of education and parody.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -109,7 +107,7 @@ Restart `lightdm` to enact all changes.
 sudo systemctl restart lightdm.service
 ```
 
-### [**Node.js** and **npm**](https://nodejs.org/en/download/package-manager/)
+### [**Node.js**](https://nodejs.org/en/download/package-manager/) and [**npm**](https://nodejs.org/en/download/package-manager/)
 
 Install `node.js` and the `npm` package manager using your package manager or other method of choice [(see options)](https://nodejs.org/en/download/package-manager/).
 
@@ -142,7 +140,7 @@ The osrs login theme comes with support for:
 * Hiding usernames
 * Desktop session select
 * Music toggle
-* Switching between Old School Runescape login screen backgrounds
+* Switching between Old School RuneScape login screen backgrounds
 
 
 
@@ -186,7 +184,7 @@ If you have a suggestion that would make this better, please fork the repo and c
 <!-- LICENSE -->
 # License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT Licence. See `LICENCE.md` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -194,8 +192,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 # Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
 Project Link: [https://github.com/ndugdale/osrs-web-greeter-theme](https://github.com/ndugdale/osrs-web-greeter-theme)
 
@@ -205,16 +201,17 @@ Project Link: [https://github.com/ndugdale/osrs-web-greeter-theme](https://githu
 
 <!-- ACKNOWLEDGMENTS -->
 # Acknowledgments
-This project was only possible due to the works of others:
-* Thank you JezerM for championing support for web technologies in login screen UIs with [Web-Greeter](https://github.com/JezerM/web-greeter) and [Nody-Greeter](https://github.com/JezerM/nody-greeter)
-* [React Final Form](https://github.com/final-form/react-final-form)
+This project was only possible due to the works of others, and so I would like to extend a thank you to:
+* JezerM for championing support for web technologies in login screen UIs with [Web-Greeter](https://github.com/JezerM/web-greeter) and [Nody-Greeter](https://github.com/JezerM/nody-greeter)
+* RuneStar for your faithful RuneScape [fonts](https://github.com/RuneStar/fonts)
+* [React Final Form](https://github.com/final-form/react-final-form) for providing an easy, lightweight form wrapper
+* [Old School RuneScape](https://oldschool.runescape.com/) for the inspiration
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/ndugdale/osrs-web-greeter-theme.svg?style=for-the-badge
 [contributors-url]: https://github.com/ndugdale/osrs-web-greeter-theme/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/ndugdale/osrs-web-greeter-theme.svg?style=for-the-badge
@@ -224,7 +221,7 @@ This project was only possible due to the works of others:
 [issues-shield]: https://img.shields.io/github/issues/ndugdale/osrs-web-greeter-theme.svg?style=for-the-badge
 [issues-url]: https://github.com/ndugdale/osrs-web-greeter-theme/issues
 [license-shield]: https://img.shields.io/github/license/ndugdale/osrs-web-greeter-theme.svg?style=for-the-badge
-[license-url]: https://github.com/ndugdale/osrs-web-greeter-theme/blob/master/LICENSE.txt
+[license-url]: https://github.com/ndugdale/osrs-web-greeter-theme/blob/main/LICENCE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: /docs/images/login-main.png
