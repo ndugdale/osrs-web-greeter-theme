@@ -2,7 +2,9 @@
   "name": "osrs-web-greeter-theme",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ndugdale.github.io/osrs-web-greeter-theme",
   "dependencies": {
+    "-": "^0.0.1",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/material": "^5.10.1",
@@ -14,11 +16,13 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "final-form": "^4.20.7",
+    "gh-pages": "^4.0.0",
     "nody-greeter-types": "^1.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-final-form": "^6.5.9",
     "react-scripts": "5.0.1",
+    "save-dev": "^0.0.1-security",
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
@@ -26,7 +30,9 @@
     "start": "react-scripts start",
     "build": "sudo ./build.sh",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "sudo react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
