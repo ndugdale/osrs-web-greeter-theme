@@ -44,11 +44,11 @@ const LoginScreen = ({showProgressBar, error, demoComplete}: LoginScreenProps) =
               <Grid item xs={8}>
                 <Logo/>
               </Grid>
-              {(!showProgressBar && !demoComplete) && (
-                <Grid item xs={2}>
+              <Grid item xs={2}>
+                {(!showProgressBar && !demoComplete) && (
                   <BackgroundSelect/>
-                </Grid>
-              )}
+                )}
+              </Grid>              
             </Grid>
             {(!showProgressBar && !demoComplete)
               ? (<CentralContainer error={error}/>)
