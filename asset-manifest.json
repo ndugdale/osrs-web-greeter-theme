@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/osrs-web-greeter-theme/static/css/main.7cc19552.css",
-    "main.js": "/osrs-web-greeter-theme/static/js/main.533f3f08.js",
+    "main.js": "/osrs-web-greeter-theme/static/js/main.a05b1292.js",
     "static/media/scapeMain.mp3": "/osrs-web-greeter-theme/static/media/scapeMain.0b2af4c2075d70b4fc69.mp3",
     "static/media/monkeyMadnessII.jpg": "/osrs-web-greeter-theme/static/media/monkeyMadnessII.b6eb09ab6246a28b8e7b.jpg",
     "static/media/songOfTheElves.jpg": "/osrs-web-greeter-theme/static/media/songOfTheElves.f20b47594b5e2d453dd3.jpg",
@@ -27,10 +27,10 @@
     "static/media/Runescape-Bold-12.woff": "/osrs-web-greeter-theme/static/media/Runescape-Bold-12.34ce97984a415273dd0c.woff",
     "index.html": "/osrs-web-greeter-theme/index.html",
     "main.7cc19552.css.map": "/osrs-web-greeter-theme/static/css/main.7cc19552.css.map",
-    "main.533f3f08.js.map": "/osrs-web-greeter-theme/static/js/main.533f3f08.js.map"
+    "main.a05b1292.js.map": "/osrs-web-greeter-theme/static/js/main.a05b1292.js.map"
   },
   "entrypoints": [
     "static/css/main.7cc19552.css",
-    "static/js/main.533f3f08.js"
+    "static/js/main.a05b1292.js"
   ]
 }
