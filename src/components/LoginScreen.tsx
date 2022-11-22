@@ -7,8 +7,15 @@ import Logo from "./Logo";
 import MusicButton from "./MusicButton";
 import ProgressBar from "./ProgressBar";
 import SessionSelect from "./SessionSelect";
+import RefreshButton from "./RefreshButton";
 
-const LoginScreen = ({showProgressBar, error}: {showProgressBar: boolean, error: boolean}) => {
+type LoginScreenProps = {
+  showProgressBar: boolean,
+  error: boolean,
+  demoComplete: boolean,
+}
+
+const LoginScreen = ({showProgressBar, error, demoComplete}: LoginScreenProps) => {
   const config: configType = useContext(ConfigContext) as configType;
   return(
     <>
@@ -37,18 +44,21 @@ const LoginScreen = ({showProgressBar, error}: {showProgressBar: boolean, error:
               <Grid item xs={8}>
                 <Logo/>
               </Grid>
-              {!showProgressBar && (
+              {(!showProgressBar && !demoComplete) && (
                 <Grid item xs={2}>
                   <BackgroundSelect/>
                 </Grid>
               )}
             </Grid>
-            {!showProgressBar
+            {(!showProgressBar && !demoComplete)
               ? (<CentralContainer error={error}/>)
-              : (<ProgressBar/>)
+              : (!demoComplete
+                ? <ProgressBar/>
+                : <RefreshButton/>
+                )
             }
           </Stack>
-          {!showProgressBar && (
+          {(!showProgressBar && !demoComplete) && (
             <Grid container>
               <Grid item xs={6}>
                 <Box sx={{m: "0.4rem"}}>

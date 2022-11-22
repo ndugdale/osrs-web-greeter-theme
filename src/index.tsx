@@ -16,7 +16,7 @@ const initGreeter = async (): Promise<void> => {
 
 document.body.style.backgroundColor = "black";
 
-if (process.env.NODE_ENV==="development"){
+if (process.env.REACT_APP_ENV!=="dm"){
   initGreeter();
 }
 else{

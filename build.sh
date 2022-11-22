@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # build react project
-react-scripts build
+env-cmd -f ./.env.dm react-scripts build
 
 # update .js file paths for theme directory 
-sed -i 's/="\//="\/usr\/share\/web-greeter\/themes\/osrs\//g' build/index.html
+sed -i 's/="\/osrs-web-greeter-theme/="\/usr\/share\/web-greeter\/themes\/osrs\//g' build/index.html
 
 # update media file paths for theme directory
 for entry in "./build/static/js"/*.js
 do
-  sed -i 's/"static\/media/"\/app\/usr\/share\/web-greeter\/themes\/osrs\/static\/media/g' "$entry"
+  sed -i 's/="\/osrs-web-greeter-theme/="\/usr\/share\/web-greeter\/themes\/osrs\//g' "$entry"
   echo "$entry"
 done
 

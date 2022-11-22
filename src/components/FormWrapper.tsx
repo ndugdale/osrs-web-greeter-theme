@@ -19,6 +19,7 @@ const FormWrapper = () => {
       setTimeout(() => resolve(), ms);
     })
   };
+  const [demoComplete, setDemoComplete] = useState(false);
   const [showProgessBar, setShowProgressBar] = useState(false);
   const [error, setError] = useState(false);
   const onSubmit = async (values: formType) => {
@@ -32,18 +33,21 @@ const FormWrapper = () => {
       )){
       setShowProgressBar(true);
       await wait(5000);
-    }else{
     }
-    lightdm.cancel_authentication();
-    lightdm.authenticate(values.user);
-    await wait(100);
-    lightdm.respond(values.password);
-    await wait(100);
-    if(lightdm.is_authenticated){
-      lightdm.start_session(values.session);
+    if(process.env.REACT_APP_ENV==="dm"){
+      lightdm.cancel_authentication();
+      lightdm.authenticate(values.user);
+      await wait(100);
+      lightdm.respond(values.password);
+      await wait(100);
+      if(lightdm.is_authenticated){
+        lightdm.start_session(values.session);
+      } else {
+        setError(true);
+      };
     } else {
-      setError(true);
-    };
+      setDemoComplete(true);
+    }
     
   };
   return(
@@ -51,7 +55,11 @@ const FormWrapper = () => {
       {({ handleSubmit }) => {
         return(
         <form onSubmit={handleSubmit}>
-          <LoginScreen showProgressBar={showProgessBar} error={error}/>
+          <LoginScreen
+            showProgressBar={showProgessBar}
+            error={error}
+            demoComplete={demoComplete}
+          />
         </form>
       )}}
     </Form>

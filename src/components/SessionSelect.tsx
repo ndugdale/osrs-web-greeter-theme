@@ -15,14 +15,14 @@ const SessionSelect = () => {
     display: "block",
   }
   
-  const devSessionList = ["bspwm", "sowm", "i3"];
+  const devSessionList = ["bspwm", "sowm", "i3", "awesomewm"];
   const devDefaultSession = devSessionList[0];
 
   const userList: LightDMUser[] = lightdm?.users;
-  const sessionList: string[] = process.env.NODE_ENV==="development"
+  const sessionList: string[] = process.env.REACT_APP_ENV!=="dm"
     ? devSessionList
     : lightdm?.sessions?.map(s => s.name);
-  const defaultSession: string = process.env.NODE_ENV==="development"
+  const defaultSession: string = process.env.REACT_APP_ENV!=="dm"
     ? devDefaultSession
     : userList?.[0]?.session ?? null;
 
