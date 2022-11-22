@@ -12,7 +12,7 @@
     A login theme for Web Greeter and Nody Greeter LightDM greeters.
     <br />
     <br />
-    <a href="https://github.com/ndugdale/osrs-web-greeter-theme">View Demo</a>
+    <a href="https://ndugdale.github.io/osrs-web-greeter-theme">View Demo</a>
     ·
     <a href="https://github.com/ndugdale/osrs-web-greeter-theme/issues">Report Bug</a>
     ·
