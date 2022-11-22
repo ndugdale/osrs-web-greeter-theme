@@ -25,6 +25,13 @@ const Configuration = ({children}: any) => {
     false,
     /\.(png|jpe?g|svg)$/
   ));
+  
+  const preloadImages = () => {
+    Object.values(backgrounds).forEach((image: any) => {
+      const img = new Image();
+      img.src = typeof image === 'string' ? image : image.default;
+    });
+  };
 
   const initialBackground = localStorage.getItem('background') ?? defaultBackground;
   let updateBackground = (_: boolean) => {};
@@ -128,6 +135,7 @@ const Configuration = ({children}: any) => {
   }, [config, update])
 
   useEffect(() => {
+    preloadImages();
     setConfig({
       ...config,
       updateBackground: updateBackground,
