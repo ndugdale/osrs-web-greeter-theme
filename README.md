@@ -69,7 +69,7 @@ This project is a login screen inspired by the popular MMORPG, [**Old School Run
 <!-- GETTING STARTED -->
 # Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow the steps below:
 
 ## Prerequisites
 ### [**LightDM**](https://github.com/canonical/lightdm)
