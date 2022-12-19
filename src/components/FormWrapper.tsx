@@ -7,7 +7,8 @@ import { useContext, useState } from "react";
 type formType = {
   user: string;
   password: string;
-  session: string;
+  sessionName: string;
+  sessionKey: string;
   rememberUsername: boolean;
   hideUsername: boolean;
 }
@@ -41,7 +42,7 @@ const FormWrapper = () => {
       lightdm.respond(values.password);
       await wait(100);
       if(lightdm.is_authenticated){
-        lightdm.start_session(values.session);
+        lightdm.start_session(values.sessionKey);
       } else {
         setError(true);
       };

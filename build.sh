@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# build react project
-env-cmd -f ./.env.dm react-scripts build
-
 # update .js file paths for theme directory 
 sed -i 's/="\/osrs-web-greeter-theme/="\/usr\/share\/web-greeter\/themes\/osrs\//g' build/index.html
 

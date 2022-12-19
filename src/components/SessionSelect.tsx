@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
-import { lightdm, LightDMUser } from "nody-greeter-types";
-import { Field } from "react-final-form";
+import { lightdm } from "nody-greeter-types";
+import { Field, useForm } from "react-final-form";
 import smallButton from "../assets/images/components/smallButton.png";
 
 const SessionSelect = () => {
@@ -14,60 +14,89 @@ const SessionSelect = () => {
     textShadow: "1px 1px #000000",
     display: "block",
   }
+  const form = useForm();
   
-  const devSessionList = ["bspwm", "sowm", "i3", "awesomewm"];
-  const devDefaultSession = devSessionList[0];
+  // sessions for browser demo
+  const devSessionNameList: string[] = [
+    "bspwm",
+    "sowm",
+    "Plasma (X11)",
+    "Plasma (Wayland)",
+  ];
+  const devSessionKeyList: string[] = [
+    "bspwm",
+    "sowm",
+    "plasma",
+    "plasmawayland",
+  ]
+  const devDefaultSessionName = devSessionNameList[0];
+  const devDefaultSessionKey = devSessionKeyList[0];
 
-  const userList: LightDMUser[] = lightdm?.users;
-  const sessionList: string[] = process.env.REACT_APP_ENV!=="dm"
-    ? devSessionList
-    : lightdm?.sessions?.map(s => s.name);
-  const defaultSession: string = process.env.REACT_APP_ENV!=="dm"
-    ? devDefaultSession
-    : userList?.[0]?.session ?? null;
+  const sessionNameList: string[] = process.env.REACT_APP_ENV!=="dm"
+    ? devSessionNameList
+    : lightdm?.sessions.map(s => s.name);
+  const sessionKeyList: string[] = process.env.REACT_APP_ENV!=="dm"
+    ? devSessionKeyList
+    : lightdm?.sessions.map(s => s.key);
+  const defaultSessionName: string = process.env.REACT_APP_ENV!=="dm"
+    ? devDefaultSessionName
+    : lightdm?.sessions.filter(s => s.key === lightdm?.users[0]?.session)[0].name;
+  const defaultSessionKey: string = process.env.REACT_APP_ENV!=="dm"
+    ? devDefaultSessionKey
+    : lightdm?.users[0]?.session;
 
   return(
-    <Field
-      name="session"
-      initialValue={defaultSession}
-    >
-      {({input}) => {
-        return(
-          <Button
-            type="button"
-            sx={smallButtonStyle}
-            onClick={ () => {
-              const current = sessionList?.indexOf(input.value);
-              const next = (current + 1) % sessionList?.length;
-              input.onChange(sessionList?.[next])
-            }}
-          >
-            <Typography 
-              mt="-0.4rem"
-              overflow="hidden"
-              sx={{
-                fontFamily: "RuneScape07Bold",
-                color: "#FFFFFF",
-                textShadow: "1px 1px #000000",
+    <>
+      <Field
+        name="sessionKey"
+        initialValue={defaultSessionKey}
+      >
+        {() => {return(<></>)}}
+      </Field>
+      <Field
+        name="sessionName"
+        initialValue={defaultSessionName}
+      >
+        {({input}) => {
+          return(
+            <Button
+              type="button"
+              sx={smallButtonStyle}
+              onClick={ () => {
+                const current = sessionNameList?.indexOf(input.value);
+                const next = (current + 1) % sessionNameList?.length;
+                input.onChange(sessionNameList?.[next]);
+                form.change("sessionKey", sessionKeyList?.[next]);
               }}
             >
-              {input.value ? input.value : "Default"}
-            </Typography>
-            <Typography
-              mt="-0.5rem"
-              fontSize="0.8rem"
-              sx={{
-                fontFamily: "RuneScape07",
-                color: "#FFFFFF",
-                textShadow: "1px 1px #000000",
-              }}
-            >
-              Click to switch
-            </Typography>
-          </Button>
-        )
-      }}
-    </Field>
+              <Typography 
+                mt="-0.4rem"
+                overflow="hidden"
+                whiteSpace="nowrap"
+                sx={{
+                  fontFamily: "RuneScape07Bold",
+                  color: "#FFFFFF",
+                  textShadow: "1px 1px #000000",
+                }}
+              >
+                {input.value ? input.value : "Default"}
+              </Typography>
+              <Typography
+                mt="-0.5rem"
+                fontSize="0.8rem"
+                sx={{
+                  fontFamily: "RuneScape07",
+                  color: "#FFFFFF",
+                  textShadow: "1px 1px #000000",
+                }}
+              >
+                Click to switch
+              </Typography>
+            </Button>
+          )
+        }}
+      </Field>
+    </>
   );
 };
 

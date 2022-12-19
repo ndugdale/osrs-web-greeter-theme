@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "env-cmd -f ./.env.web react-scripts start",
-    "build": "sudo ./build.sh",
+    "build": "sudo env-cmd -f ./.env.dm react-scripts build && sudo ./build.sh",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "sudo env-cmd -f ./.env.web react-scripts build",
