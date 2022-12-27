@@ -13,6 +13,12 @@ export interface configType {
   updateHideUsername: (hide: boolean) => void;
   lastUsername: string;
   updateLastUsername: (username: string) => void;
+  scale: string;
+  updateScale: (scale: string) => void;
+  hideBackgroundSelect: boolean;
+  updateHideBackgroundSelect: (hide: boolean) => void;
+  hideSessionSelect: boolean;
+  updateHideSessionSelect: (hide: boolean) => void;
   valuesChanged: (remember: boolean, hide: boolean, username: string) => boolean;
 }
 
@@ -43,6 +49,12 @@ const Configuration = ({children}: any) => {
   let updateHideUsername = (_: boolean) => {};
   const initialLastUsername = localStorage.getItem('lastUsername') ?? "";
   let updateLastUsername = (_: string) => {};
+  const initialScale = localStorage.getItem('scale') ?? "1.0";
+  let updateScale = (_: string) => {};
+  const initialHideBackgroundSelect = localStorage.getItem('hideBackgroundSelect') === "true";
+  let updateHideBackgroundSelect = (_: boolean) => {};
+  const initialHideSessionSelect = localStorage.getItem('hideSessionSelect') === "true";
+  let updateHideSessionSelect = (_: boolean) => {};
   let valuesChanged = (_0: boolean, _1: boolean, _2: string) => false;
 
   const [initialValues] = useState({
@@ -51,6 +63,9 @@ const Configuration = ({children}: any) => {
     rememberUsername: initialRememberUsername,
     hideUsername: initialHideUsername,
     lastUsername: initialLastUsername,
+    scale: initialScale,
+    hideBackgroundSelect: initialHideBackgroundSelect,
+    hideSessionSelect: initialHideSessionSelect,
   });
 
   const [config, setConfig] = useState<configType>(
@@ -65,6 +80,12 @@ const Configuration = ({children}: any) => {
       updateHideUsername: updateHideUsername,
       lastUsername: initialLastUsername,
       updateLastUsername: updateLastUsername,
+      scale: initialScale,
+      updateScale: updateScale,
+      hideBackgroundSelect: initialHideBackgroundSelect,
+      updateHideBackgroundSelect: updateHideBackgroundSelect,
+      hideSessionSelect: initialHideSessionSelect,
+      updateHideSessionSelect: updateHideSessionSelect,
       valuesChanged: valuesChanged,
     }
   );
@@ -75,7 +96,10 @@ const Configuration = ({children}: any) => {
       config.unmuted !== initialValues.unmuted ||
       remember !== initialValues.rememberUsername ||
       hide !== initialValues.hideUsername ||
-      (remember && username !== initialValues.lastUsername)
+      (remember && username !== initialValues.lastUsername) ||
+      config.scale !== initialValues.scale ||
+      config.hideBackgroundSelect !== initialValues.hideBackgroundSelect ||
+      config.hideSessionSelect !== initialValues.hideSessionSelect
     );
   }
 
@@ -119,6 +143,25 @@ const Configuration = ({children}: any) => {
     setUpdate(true);
   }
 
+  updateScale = (scale: string) => {
+    localStorage.setItem("scale", scale);
+    setConfig({...config, scale: scale});
+    console.log(`updated scale to ${scale}`)
+    setUpdate(true);
+  }
+
+  updateHideBackgroundSelect = (hide: boolean) => {
+    localStorage.setItem("hideBackgroundSelect", hide.toString());
+    setConfig({...config, hideBackgroundSelect: hide});
+    setUpdate(true);
+  }
+
+  updateHideSessionSelect = (hide: boolean) => {
+    localStorage.setItem("hideSessionSelect", hide.toString());
+    setConfig({...config, hideSessionSelect: hide});
+    setUpdate(true);
+  }
+
   useEffect(() => {
     if(update){
       setConfig({
@@ -128,6 +171,9 @@ const Configuration = ({children}: any) => {
         updateRememberUsername: updateRememberUsername,
         updateHideUsername: updateHideUsername,
         updateLastUsername: updateLastUsername,
+        updateScale: updateScale,
+        updateHideBackgroundSelect: updateHideBackgroundSelect,
+        updateHideSessionSelect: updateHideSessionSelect,
         valuesChanged: valuesChanged,
       });
       setUpdate(false);
@@ -143,6 +189,9 @@ const Configuration = ({children}: any) => {
       updateRememberUsername: updateRememberUsername,
       updateHideUsername: updateHideUsername,
       updateLastUsername: updateLastUsername,
+      updateScale: updateScale,
+      updateHideBackgroundSelect: updateHideBackgroundSelect,
+      updateHideSessionSelect: updateHideSessionSelect,
       valuesChanged: valuesChanged,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

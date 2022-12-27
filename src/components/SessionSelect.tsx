@@ -1,9 +1,9 @@
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { lightdm } from "nody-greeter-types";
 import { Field, useForm } from "react-final-form";
 import smallButton from "../assets/images/components/smallButton.png";
 
-const SessionSelect = () => {
+const SessionSelect = (visibility: {visibility: string}) => {
   const smallButtonStyle = {
     width: 100,
     height: 35,
@@ -46,7 +46,7 @@ const SessionSelect = () => {
     : lightdm?.users[0]?.session;
 
   return(
-    <>
+    <Box sx={{visibility: visibility}}>
       <Field
         name="sessionKey"
         initialValue={defaultSessionKey}
@@ -96,7 +96,7 @@ const SessionSelect = () => {
           )
         }}
       </Field>
-    </>
+    </Box>
   );
 };
 

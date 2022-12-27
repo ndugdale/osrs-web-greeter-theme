@@ -3,7 +3,7 @@ import { useContext } from "react";
 import arrow from "../assets/images/components/arrow.png";
 import { ConfigContext, configType } from "./Configuration";
 
-const BackgroundSelect = () => {
+const BackgroundSelect = (visibility: {visibility: string}) => {
   const config: configType = useContext(ConfigContext) as configType;
   
   const leftArrowStyle = {
@@ -28,6 +28,7 @@ const BackgroundSelect = () => {
       display="flex"
       justifyContent="flex-end"
       m="0.8rem"
+      sx={{visibility: visibility}}
     >
       <Button
         sx={leftArrowStyle}

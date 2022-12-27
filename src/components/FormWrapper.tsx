@@ -30,26 +30,28 @@ const FormWrapper = () => {
     if(config.valuesChanged(
         values.rememberUsername,
         values.hideUsername,
-        values.user
+        values.user,
       )){
       setShowProgressBar(true);
-      await wait(5000);
+      await wait(7500);
     }
     if(process.env.REACT_APP_ENV==="dm"){
       lightdm.cancel_authentication();
-      lightdm.authenticate(values.user);
-      await wait(100);
-      lightdm.respond(values.password);
-      await wait(100);
+      if(lightdm.users.map(u => u.username).includes(values.user)){
+        lightdm.authenticate(values.user);
+        await wait(100);
+        lightdm.respond(values.password);
+        await wait(100);
+      }
       if(lightdm.is_authenticated){
         lightdm.start_session(values.sessionKey);
       } else {
+        setShowProgressBar(false);
         setError(true);
       };
     } else {
       setDemoComplete(true);
     }
-    
   };
   return(
     <Form onSubmit={onSubmit}>
