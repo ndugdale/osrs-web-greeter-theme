@@ -144,7 +144,13 @@ The osrs login theme comes with support for:
 * Desktop session select
 * Music toggle
 * Switching between Old School RuneScape login screen backgrounds
+* Hiding session select and background select controls
+* Screen scaling
 * Saving the above preferences
+
+**Configuration menu shortcut**: `Ctrl` + `.`
+
+The configuration menu provides controls for hiding the session select and background select components, as well as scaling the screen contents. Using the scaling option, the login screen can be configured to fit any screen size or DPI.
 
 <div align="center">
   <video src="https://user-images.githubusercontent.com/67626400/202997025-8419ecf7-c806-4828-9bb6-81c509adc0ed.mp4"/>
