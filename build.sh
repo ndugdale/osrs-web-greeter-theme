@@ -12,4 +12,6 @@ done
 
 # copy build to theme directory
 mkdir -p /usr/share/web-greeter/themes/osrs
+find build/ -type d -exec chmod 755 '{}' \;
+find build/ -type f -exec chmod 644 '{}' \;
 cp -a build/. /usr/share/web-greeter/themes/osrs/
