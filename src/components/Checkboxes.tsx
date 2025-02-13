@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, FormControlLabel, Typography } from "@mui/material";
 import { useContext } from "react";
 import { Field, FieldInputProps, useForm } from "react-final-form";
 import checked from "../assets/images/components/checked.png";
@@ -23,10 +23,11 @@ const Checkboxes = () => {
     mx: "0.2rem",
   }
   const checkboxLabelStyle = {
-    fontFamily: "RuneScape07",
+    fontFamily: "RuneScape07Small",
     color: "#F7F800",
     textShadow: "1px 1px #000000",
-    fontSize: "0.85rem",
+    fontSize: "1rem",
+    lineHeight: 1.2
   }
 
   const form = useForm();
@@ -46,36 +47,30 @@ const Checkboxes = () => {
           name="rememberUsername"
           initialValue={config.rememberUsername}
         >
-          {({input}) => {
-            return(
-              <Button 
-                sx={ input.value ? checkedStyle : uncheckedStyle }
+          {({input}) => <FormControlLabel label="Remember username" sx={{ ml: '12px', mr: '6px' }}
+            componentsProps={{ typography: { sx: checkboxLabelStyle } }}
+            control={
+              <Button sx={ input.value ? checkedStyle : uncheckedStyle }
                 onClick={() => handleRememberUsernameClick(input)}
               />
-            );
-          }}
+            }
+          />}
         </Field>
-        <Typography sx={checkboxLabelStyle}>
-          Remember username
-        </Typography>
       </Box>
       <Box display="flex" ml="0.6rem">
         <Field
           name="hideUsername"
           initialValue={config.hideUsername}
         >
-          {({input}) => {
-            return(
-              <Button 
-                sx={ input.value ? checkedStyle : uncheckedStyle }
+          {({input}) => <FormControlLabel label="Hide username"
+            componentsProps={{ typography: { sx: checkboxLabelStyle } }}
+            control={
+              <Button sx={ input.value ? checkedStyle : uncheckedStyle }
                 onClick={() => handleHideUsernameClick(input)}
               />
-            );
-          }}
+            }
+          />}
         </Field>
-        <Typography sx={checkboxLabelStyle}>
-          Hide username
-        </Typography>
       </Box>
     </Box>
   );

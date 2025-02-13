@@ -20,18 +20,20 @@ const CentralContents = ({error}: {error: boolean}) => {
     backgroundColor: "transparent",
     border: "none",
     caretColor: "#F7F800",
+    fontSize: "1rem"
   }
 
   const labelStyle = {
     fontFamily: "RuneScape07Bold",
     color: "#FFFFFF",
     textShadow: "1px 1px #000000",
-    display: "inline",
+    display: "inline"
   }
 
   const labelBoxStyle = {
     mx: "4.4rem",
-    height: "1.0rem",
+    height: "1rem",
+    whiteSpace: "nowrap"
   }
 
   const largeButtonStyle = {
@@ -42,6 +44,7 @@ const CentralContents = ({error}: {error: boolean}) => {
     textTransform: "capitalize",
     color: "#FFFFFF",
     textShadow: "1px 1px #000000",
+    borderRadius: 0
   }
 
   const capsLockMessageStyle = {
@@ -102,11 +105,9 @@ const CentralContents = ({error}: {error: boolean}) => {
               name="user"
               type={ formValues.hideUsername ? "password" : "text" }
               component="input"
-              initialValue={ config.lastUsername }
+              initialValue={config.lastUsername}
             > 
-              {({input}) => (
-                <input {...input} style={inputStyle} autoComplete="off"/>
-              )}
+              {({input}) => <input {...input} style={inputStyle} autoComplete="off" autoFocus={config.lastUsername === ''} />}
             </Field>
           </Box>
           <Box sx={labelBoxStyle}>
@@ -117,9 +118,7 @@ const CentralContents = ({error}: {error: boolean}) => {
               name="password"
               type="password"
             >
-              {({input}) => (
-                <input {...input} style={inputStyle} autoComplete="off"/>
-              )}
+              {({input}) => <input {...input} style={inputStyle} autoComplete="off" autoFocus={config.lastUsername !== ''} />}
             </Field>
           </Box>
           <Checkboxes/>
