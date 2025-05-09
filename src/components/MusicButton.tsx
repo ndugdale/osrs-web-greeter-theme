@@ -1,35 +1,19 @@
 import { Button } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import musicOn from "../assets/images/components/musicOn.png";
 import musicOff from "../assets/images/components/musicOff.png";
-import music from "../assets/audio/scapeMain.mp3";
+import scapeMain from "../assets/audio/scapeMain.mp3";
 import { ConfigContext, configType } from "./Configuration";
 
 const MusicButton = () => {
   const config: configType = useContext(ConfigContext) as configType;
-  const [audio] = useState(new Audio(music));
-  const [init, setInit] = useState(true);
+  const audio = useMemo(() => {
+    let audio = document.createElement("audio");
+    audio.src = scapeMain;
+    return audio;
+  }, []);
 
-  const handleClick = () => {
-    const oldCommand = config.unmuted;
-    const newCommand = !oldCommand;
-    if (newCommand){
-      audio.play();
-    }
-    else {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-    config.updateUnmuted();
-  };
-
-  ["click", "keydown"].forEach( (type) => {
-      window.addEventListener(type, (e) => {
-        const target = e.target as HTMLButtonElement;
-        init && config.unmuted && target?.id !== "music-button" && audio.play();
-        setInit(false);
-      })
-  });
+  const handleClick = () => config.updateUnmuted(); // toggle mute
 
   const musicButtonStyle = {
     minWidth: 36,
@@ -39,13 +23,24 @@ const MusicButton = () => {
     display: "flex",
   };
 
-  return(
-    <Button 
-      sx={musicButtonStyle}
-      onClick={handleClick}
-      id="music-button"
-    />
-  );
+  useEffect(() => {
+    if (config.unmuted) {
+      audio.play();
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [config.unmuted, audio]);
+
+  return <Button
+    sx={musicButtonStyle}
+    onClick={handleClick}
+  />;
 };
 
 export default MusicButton;

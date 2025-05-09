@@ -45,7 +45,7 @@ const Configuration = ({children}: any) => {
   let updateUnmuted = () => {};
   const initialRememberUsername = localStorage.getItem('rememberUsername') === "true";
   let updateRememberUsername = (_: boolean) => {};
-  const initialHideUsername = localStorage.getItem('hideUsername') === "true";
+  const initialHideUsername = localStorage.getItem('hideUsername') === "false";
   let updateHideUsername = (_: boolean) => {};
   const initialLastUsername = localStorage.getItem('lastUsername') ?? "";
   let updateLastUsername = (_: string) => {};

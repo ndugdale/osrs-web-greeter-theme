@@ -1,6 +1,7 @@
 import { Box, Grid, Stack } from "@mui/material";
 import { useContext, useEffect } from "react";
 import BackgroundSelect from "./BackgroundSelect";
+import LoginScreenRunes from "./LoginScreenRunes"
 import CentralContainer from "./CentralContainer";
 import { ConfigContext, configType } from "./Configuration";
 import Logo from "./Logo";
@@ -67,12 +68,15 @@ const LoginScreen = ({showProgressBar, error, demoComplete}: LoginScreenProps) =
             backgroundImage: `url(${config.background})`,
             display: "flex",
             justifyContent: "space-between",
+            position: 'relative'
           }}
         >
+          <LoginScreenRunes/>
           <Stack sx={{
             width: "100%",
             display: "flex",
             alignItems: "center",
+            zIndex: 1
           }}>
             <Grid container justifyContent="center">
               <Grid item xs={2}/>
@@ -83,7 +87,7 @@ const LoginScreen = ({showProgressBar, error, demoComplete}: LoginScreenProps) =
                 {(!showProgressBar && !demoComplete) && (
                   <BackgroundSelect visibility={!formValues.hideBackgroundSelect ? 'visible' : 'hidden'}/>
                 )}
-              </Grid>              
+              </Grid>
             </Grid>
             {(!showProgressBar && !demoComplete)
               ? (<CentralContainer error={error}/>)
