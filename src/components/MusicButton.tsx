@@ -1,9 +1,9 @@
+import scapeMain from "../assets/audio/scapeMain.mp3";
+import musicOff from "../assets/images/components/musicOff.png";
+import musicOn from "../assets/images/components/musicOn.png";
+import { ConfigContext, configType } from "./Configuration";
 import { Button } from "@mui/material";
 import { useContext, useEffect, useMemo } from "react";
-import musicOn from "../assets/images/components/musicOn.png";
-import musicOff from "../assets/images/components/musicOff.png";
-import scapeMain from "../assets/audio/scapeMain.mp3";
-import { ConfigContext, configType } from "./Configuration";
 
 const MusicButton = () => {
   const config: configType = useContext(ConfigContext) as configType;
@@ -37,10 +37,7 @@ const MusicButton = () => {
     };
   }, [config.unmuted, audio]);
 
-  return <Button
-    sx={musicButtonStyle}
-    onClick={handleClick}
-  />;
+  return <Button sx={musicButtonStyle} onClick={handleClick} />;
 };
 
 export default MusicButton;

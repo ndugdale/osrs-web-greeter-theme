@@ -1,11 +1,11 @@
-import Box from "@mui/material/Box";
-import background from "../assets/images/components/loginContainer.png"
+import background from "../assets/images/components/loginContainer.png";
 import CentralContents from "./CentralContents";
+import Box from "@mui/material/Box";
 
-const CentralContainer = ({error}: {error: boolean}) => {
-  
-  return(
-    <Box sx={{
+const CentralContainer = ({ error }: { error: boolean }) => {
+  return (
+    <Box
+      sx={{
         width: 360,
         height: 200,
         backgroundImage: `url(${background})`,
@@ -13,9 +13,9 @@ const CentralContainer = ({error}: {error: boolean}) => {
         alignItems: "center",
       }}
     >
-      <CentralContents error={error}/>
+      <CentralContents error={error} />
     </Box>
   );
-}
+};
 
 export default CentralContainer;

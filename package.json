@@ -40,6 +40,13 @@
       "react-app/jest"
     ]
   },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/webpack-env": "^1.18.0",
+    "env-cmd": "^10.1.0",
+    "file-loader": "^6.2.0",
+    "prettier": "^3.5.3"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -51,10 +58,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/webpack-env": "^1.18.0",
-    "env-cmd": "^10.1.0",
-    "file-loader": "^6.2.0"
   }
 }

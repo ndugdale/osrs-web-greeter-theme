@@ -2,8 +2,7 @@ input:focus {
   outline-style: none;
 }
 
-input[type="text"]
-{
+input[type="text"] {
   font-size: 1rem;
 }
 
@@ -13,7 +12,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-*{
+* {
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {

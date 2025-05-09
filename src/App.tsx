@@ -1,12 +1,11 @@
-import FormWrapper from './components/FormWrapper';
-import RuneScape07 from "./assets/fonts/Runescape-Plain-12.woff";
 import RuneScape07Bold from "./assets/fonts/Runescape-Bold-12.woff";
 import RuneScape07Small from "./assets/fonts/Runescape-Plain-11.ttf";
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import Configuration from './components/Configuration';
+import RuneScape07 from "./assets/fonts/Runescape-Plain-12.woff";
+import Configuration from "./components/Configuration";
+import FormWrapper from "./components/FormWrapper";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
 function App() {
-
   const theme = createTheme({
     components: {
       MuiCssBaseline: {
@@ -40,11 +39,11 @@ function App() {
     },
   });
 
-  return(
+  return (
     <ThemeProvider theme={theme}>
       <CssBaseline>
         <Configuration>
-          <FormWrapper/>
+          <FormWrapper />
         </Configuration>
       </CssBaseline>
     </ThemeProvider>

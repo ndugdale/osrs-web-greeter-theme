@@ -1,5 +1,5 @@
-import { Button, Typography } from "@mui/material";
 import largeButton from "../assets/images/components/largeButton.png";
+import { Button, Typography } from "@mui/material";
 
 const RefreshButton = () => {
   const largeButtonStyle = {
@@ -12,18 +12,17 @@ const RefreshButton = () => {
     textShadow: "1px 1px #000000",
     display: "block",
     mt: "5rem",
-  }
+  };
 
-
-  return(
+  return (
     <Button
       type="button"
       sx={largeButtonStyle}
-      onClick={ () => {
+      onClick={() => {
         window.location.reload();
       }}
     >
-      <Typography 
+      <Typography
         mt="-0.3rem"
         overflow="hidden"
         sx={{
